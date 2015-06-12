@@ -4,8 +4,11 @@ angular.module('todoApp', [])
         //todoList.todos = [
         //    {text: 'learn angular', done: true},
         //    {text: 'build an angular app', done: false}];
-
-        todoList.todos = localStorage.getItem("todos");
+        todoList.todos = [];
+        todoList.todos = angular.fromJson(localStorage.getItem("todos"));
+        if (todoList.todos == null) {
+            todoList.todos = [];
+        }
 
         todoList.addTodo = function () {
             if (todoList.todoText == undefined || todoList.todoText == '') {
@@ -14,7 +17,7 @@ angular.module('todoApp', [])
                 todoList.todos.push({text: todoList.todoText, done: false});
                 todoList.todoText = '';
 
-                localStorage
+                localStorage.setItem("todos", angular.toJson(todoList.todos));
             }
         };
 
@@ -32,6 +35,7 @@ angular.module('todoApp', [])
             angular.forEach(oldTodos, function (todo) {
                 if (!todo.done) todoList.todos.push(todo);
             });
+            localStorage.setItem("todos", angular.toJson(todoList.todos));
         };
 
         todoList.delete = function (todo) {
@@ -41,6 +45,7 @@ angular.module('todoApp', [])
                 if (index != -1) {
                     todoList.todos.splice(index, 1);
                 }
+                localStorage.setItem("todos", angular.toJson(todoList.todos));
             }
         }
 
