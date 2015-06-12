@@ -6,8 +6,12 @@ angular.module('todoApp', [])
             {text: 'build an angular app', done: false}];
 
         todoList.addTodo = function () {
-            todoList.todos.push({text: todoList.todoText, done: false});
-            todoList.todoText = '';
+            if (todoList.todoText == undefined || todoList.todoText == '') {
+                alert("Entry should not be empty!");
+            } else {
+                todoList.todos.push({text: todoList.todoText, done: false});
+                todoList.todoText = '';
+            }
         };
 
         todoList.remaining = function () {
