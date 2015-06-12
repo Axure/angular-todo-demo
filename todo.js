@@ -31,9 +31,12 @@ angular.module('todoApp', [])
         };
 
         todoList.delete = function (todo) {
-            var index = todoList.todos.indexOf(todo);
-            if (index != -1) {
-                todoList.todos.splice(index, 1);
+            var r = window.confirm("Do you really want to delete this entry?");
+            if (r == true) {
+                var index = todoList.todos.indexOf(todo);
+                if (index != -1) {
+                    todoList.todos.splice(index, 1);
+                }
             }
         }
 
