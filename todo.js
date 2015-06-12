@@ -29,4 +29,12 @@ angular.module('todoApp', [])
                 if (!todo.done) todoList.todos.push(todo);
             });
         };
+
+        todoList.delete = function (todo) {
+            var index = todoList.todos.indexOf(todo);
+            if (index != -1) {
+                todoList.todos.splice(index, 1);
+            }
+        }
+
     });
