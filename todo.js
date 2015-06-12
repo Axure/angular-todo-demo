@@ -1,9 +1,11 @@
 angular.module('todoApp', [])
-    .controller('TodoListController', function() {
+    .controller('TodoListController', function () {
         var todoList = this;
-        todoList.todos = [
-            {text: 'learn angular', done: true},
-            {text: 'build an angular app', done: false}];
+        //todoList.todos = [
+        //    {text: 'learn angular', done: true},
+        //    {text: 'build an angular app', done: false}];
+
+        todoList.todos = localStorage.getItem("todos");
 
         todoList.addTodo = function () {
             if (todoList.todoText == undefined || todoList.todoText == '') {
@@ -11,6 +13,8 @@ angular.module('todoApp', [])
             } else {
                 todoList.todos.push({text: todoList.todoText, done: false});
                 todoList.todoText = '';
+
+                localStorage
             }
         };
 

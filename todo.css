@@ -2,3 +2,31 @@
     text-decoration: line-through;
     color: grey;
 }
+
+.unstyled {
+    list-style-type: none;
+    padding: 0;
+}
+
+.todo-entry:nth-child(odd) {
+    background-color: lightskyblue;
+}
+
+.todo-entry:nth-child(even) {
+    background-color: lemonchiffon;
+}
+
+.container {
+    width: 300px;
+    background-color: gray;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+div, li, ul, input {
+    border-radius: 2px;
+}
+
+h2 {
+    text-align: center;
+}
